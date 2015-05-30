@@ -51,4 +51,9 @@ public class Student {
 	public String toString() {
 		return "Student name is " + this.name;
 	}
+	
+	public static int compareIds(Student s1, Student s2) {
+		Integer id1 = s1.getId();
+		return id1.compareTo(s2.getId());
+	}
 }
