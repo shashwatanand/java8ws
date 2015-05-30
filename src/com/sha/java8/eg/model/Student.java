@@ -2,7 +2,9 @@ package com.sha.java8.eg.model;
 
 import java.util.Date;
 
-public class Student {
+import com.sha.java8.eg.interfaces.StudentInterface;
+
+public class Student implements StudentInterface {
 	private int id;
 	private String name;
 	private Date joiningDate;
