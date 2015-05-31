@@ -1,4 +1,4 @@
-package com.sha.java8.eg;
+package com.sha.java8.eg.stream;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 import com.sha.java8.eg.model.Student;
 
-public class DefaultMethods {
+public class SequentialStream {
 	public static void main(String[] args) {
 		List<Student> students = new ArrayList<Student>();
 		students.add(new Student(60, "Shashwat"));
@@ -21,11 +21,15 @@ public class DefaultMethods {
 	private static void displayStudent(List<Student> students,
 			Predicate<Student> pred) {
 		System.out.println("Students met the criteria are ....");
-		students.forEach(s -> {
+		/*students.forEach(s -> {
 			if (pred.test(s)) {
 				//String output = "Student with name " + s.getName() + " has id " + s.getId();
 				System.out.println(s.getStudentInfo() );
 			}
-		});
+		});*/
+		
+		students.stream()
+			.filter(pred)
+			.forEach(s ->  System.out.println(s.getStudentInfo()));
 	}
 }
