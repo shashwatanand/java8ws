@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.FormatStyle;
+import java.time.temporal.ChronoField;
 import java.util.Locale;
 
 public class Eg2 {
@@ -32,5 +34,14 @@ public class Eg2 {
 		
 		System.out.println(longStr);
 		System.out.println(stortStr);
+		
+		DateTimeFormatterBuilder builder = new DateTimeFormatterBuilder()
+			.appendValue(ChronoField.MONTH_OF_YEAR)
+			.appendLiteral("/")
+			.appendValue(ChronoField.DAY_OF_MONTH)
+			.appendLiteral("/")
+			.appendValue(ChronoField.YEAR);
+		DateTimeFormatter formatter = builder.toFormatter();
+		System.out.println(formatter.format(current));
 	}
 }
