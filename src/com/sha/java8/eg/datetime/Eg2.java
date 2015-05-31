@@ -1,8 +1,11 @@
 package com.sha.java8.eg.datetime;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class Eg2 {
 	public static void main(String[] args) {
@@ -14,5 +17,20 @@ public class Eg2 {
 		DateTimeFormatter tf = DateTimeFormatter.ISO_TIME;
 		System.out.println(tf.format(currentTime));
 		
+		LocalDateTime current = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ISO_DATE_TIME;
+		System.out.println(dtf.format(current));
+		
+		DateTimeFormatter frLong = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+		System.out.println(frLong.format(current));
+		
+		DateTimeFormatter frShort = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+		System.out.println(frShort.format(current));
+		
+		String longStr = frLong.withLocale(Locale.GERMAN).format(current);
+		String stortStr = frShort.withLocale(Locale.GERMAN).format(current);
+		
+		System.out.println(longStr);
+		System.out.println(stortStr);
 	}
 }
