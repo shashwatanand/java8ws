@@ -1,4 +1,4 @@
-package com.sha.java8.eg.datetime;
+package com.sha.java8.datetime;
 
 import java.time.Duration;
 import java.time.Instant;
